@@ -37,12 +37,12 @@ if roll_no:
             st.download_button(
                 label="Download Excel File",
                 data=output,
-                file_name=f"filtered_data_{roll_no}.xlsx",
+                file_name=f"seat_plan_{roll_no}.xlsx",
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
 
             # Display the filtered data
-            st.write("Filtered Data:")
+            st.write("Seat Plan:")
             st.dataframe(filtered_df)
 
     except Exception as e:
