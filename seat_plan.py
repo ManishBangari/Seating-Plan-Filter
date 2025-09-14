@@ -13,11 +13,14 @@ csv_url = "Students Mid Sem Exam Time Table Autumn 2025(Room allocation).csv"
 
 if roll_no:
     try:
-        # Read the CSV file from GitHub
+    	# Read the CSV file from GitHub
         df = pd.read_csv(csv_url)
 
         # Filter rows where the roll number is in 'rollnolist'
         filtered_df = df[df['rollnolist'].apply(lambda x: roll_no in str(x).split(','))]
+
+        # Sort by 'date' column
+        filtered_df = filtered_df.sort_values(by='date')
 
         if filtered_df.empty:
             st.warning(f"No data found for roll number {roll_no}.")
